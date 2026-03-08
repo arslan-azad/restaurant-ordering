@@ -1,0 +1,15 @@
+{
+  "name": "restaurant-ordering-mvp-ui",
+  "version": "1.0.0",
+  "description": "This folder contains a clickable front-end prototype of the minimum viable restaurant ordering + feedback system.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.38.0"
+  }
+}

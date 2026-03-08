@@ -1,0 +1,55 @@
+export const MENU = [
+  {
+    id: "specials",
+    name: "Chef Specials",
+    items: [
+      { id: "cs-01", name: "Smoked Chili Chicken Bowl", price: 16.5, desc: "Choice of rice, heat level, and add-ons" },
+      { id: "cs-02", name: "Seared Tuna Tataki", price: 22.0, desc: "Ponzu glaze, pickled ginger, wasabi cream" },
+      { id: "cs-03", name: "Lamb Kofta Plate", price: 19.5, desc: "Spiced lamb, hummus, flatbread, harissa" },
+      { id: "cs-04", name: "Truffle Mushroom Risotto", price: 28.0, desc: "Arborio rice, porcini, shaved truffle, parmesan" },
+    ],
+  },
+  {
+    id: "bowls",
+    name: "Bowls & Salads",
+    items: [
+      { id: "bs-01", name: "Teriyaki Salmon Bowl", price: 18.0, desc: "Sushi rice, avocado, edamame, teriyaki glaze" },
+      { id: "bs-02", name: "Mediterranean Grain Bowl", price: 14.5, desc: "Farro, roasted vegetables, feta, lemon vinaigrette" },
+      { id: "bs-03", name: "Thai Crunch Salad", price: 13.0, desc: "Cabbage, mango, peanuts, chili lime dressing" },
+      { id: "bs-04", name: "Poke Bowl", price: 17.0, desc: "Ahi tuna, sticky rice, cucumber, spicy mayo" },
+      { id: "bs-05", name: "Caesar Salad", price: 11.0, desc: "Romaine, croutons, parmesan, anchovy dressing" },
+      { id: "bs-06", name: "Burrito Bowl", price: 15.0, desc: "Black beans, corn, salsa, guac, cilantro lime rice" },
+      { id: "bs-07", name: "Miso Slaw", price: 12.0, desc: "Red cabbage, carrot, white miso, sesame" },
+    ],
+  },
+  {
+    id: "sides",
+    name: "Sides",
+    items: [
+      { id: "si-01", name: "Sweet Potato Fries", price: 6.5, desc: "Crispy, with chipotle aioli" },
+      { id: "si-02", name: "Garlic Bread", price: 5.0, desc: "Sourdough, roasted garlic butter" },
+      { id: "si-03", name: "Edamame", price: 4.5, desc: "Steamed, sea salt" },
+      { id: "si-04", name: "House Pickles", price: 4.0, desc: "Seasonal vegetables, rice vinegar brine" },
+      { id: "si-05", name: "Corn Ribs", price: 7.5, desc: "Charred, tajin, lime crema" },
+      { id: "si-06", name: "Mac & Cheese Bites", price: 8.0, desc: "Panko-crusted, truffle ketchup" },
+      { id: "si-07", name: "Soup of the Day", price: 6.0, desc: "Ask your server for today's selection" },
+      { id: "si-08", name: "Side Salad", price: 5.5, desc: "Mixed greens, cherry tomatoes, balsamic" },
+    ],
+  },
+  {
+    id: "drinks",
+    name: "Drinks",
+    items: [
+      { id: "dr-01", name: "Sparkling Yuzu", price: 5.0, desc: "House-made yuzu soda, light fizz" },
+      { id: "dr-02", name: "Cold Brew Coffee", price: 4.5, desc: "24-hour steeped, served over ice" },
+      { id: "dr-03", name: "Matcha Latte", price: 5.5, desc: "Ceremonial grade, oat milk" },
+      { id: "dr-04", name: "Fresh Lemonade", price: 3.5, desc: "Squeezed daily, hint of mint" },
+      { id: "dr-05", name: "Kombucha", price: 6.0, desc: "Rotating flavors, ask your server" },
+      { id: "dr-06", name: "Sparkling Water", price: 3.0, desc: "San Pellegrino, 500ml" },
+      { id: "dr-07", name: "Iced Thai Tea", price: 5.0, desc: "Black tea, condensed milk, over ice" },
+      { id: "dr-08", name: "Ginger Beer", price: 4.5, desc: "Spicy, non-alcoholic" },
+      { id: "dr-09", name: "Espresso", price: 3.5, desc: "Double shot, house blend" },
+      { id: "dr-10", name: "Berry Smoothie", price: 7.0, desc: "Blueberry, strawberry, banana, yogurt" },
+    ],
+  },
+];
