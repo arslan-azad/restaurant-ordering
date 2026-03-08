@@ -335,6 +335,43 @@ body {
   border-color: var(--accent);
 }
 
+/* --- Menu inline quantity stepper --- */
+.menu-qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--accent);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.menu-qty-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease;
+}
+
+.menu-qty-btn:hover {
+  background: rgba(196, 124, 57, 0.1);
+}
+
+.menu-qty-count {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
 /* --- Cart quantity controls --- */
 .qty-controls {
   display: flex;

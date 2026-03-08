@@ -10,11 +10,28 @@ export const description = "Customers browse categories, customize items, and pl
 
 const FEATURED_ID = "cs-01";
 
+function cartQty(cart, itemId) {
+  const entry = cart.find((c) => c.itemId === itemId);
+  return entry ? entry.qty : 0;
+}
+
+function addBtn(cart, itemId) {
+  const qty = cartQty(cart, itemId);
+  if (qty === 0) {
+    return `<button class="cta" data-action="add-to-cart" data-item-id="${itemId}">Add</button>`;
+  }
+  return `<div class="menu-qty-stepper">
+    <button class="menu-qty-btn" data-action="menu-decrement" data-item-id="${itemId}">&minus;</button>
+    <span class="menu-qty-count">${qty}</span>
+    <button class="menu-qty-btn" data-action="menu-increment" data-item-id="${itemId}">+</button>
+  </div>`;
+}
+
 export function render(state) {
   const featured = findItemById(FEATURED_ID);
   return `
     <div class="layout-2">
-      ${state.openCategory ? renderCategoryItems(state.openCategory) : renderCategoryList()}
+      ${state.openCategory ? renderCategoryItems(state.openCategory, state.cart) : renderCategoryList()}
       <aside class="card">
         <h3>Featured Item</h3>
         <article class="list-item">
@@ -25,7 +42,7 @@ export function render(state) {
           <p class="screen-meta">${featured.desc}</p>
           <div class="row">
             <strong>${formatCurrency(featured.price)}</strong>
-            <button class="cta" data-action="add-to-cart" data-item-id="${featured.id}">Add</button>
+            ${addBtn(state.cart, featured.id)}
           </div>
         </article>
         <p class="footer-note">MVP component goal: reduce manual back-and-forth and phone order mistakes.</p>
@@ -52,7 +69,7 @@ function renderCategoryList() {
     </section>`;
 }
 
-function renderCategoryItems(categoryId) {
+function renderCategoryItems(categoryId, cart) {
   const cat = MENU.find((c) => c.id === categoryId);
   if (!cat) return renderCategoryList();
   return `
@@ -73,7 +90,7 @@ function renderCategoryItems(categoryId) {
               </div>
               <div class="row" style="gap:0.5rem;flex-shrink:0">
                 <strong>${formatCurrency(item.price)}</strong>
-                <button class="cta" data-action="add-to-cart" data-item-id="${item.id}">Add</button>
+                ${addBtn(cart, item.id)}
               </div>
             </div>
           </article>`
@@ -90,13 +107,25 @@ export const actions = {
     const item = findItemById(el.dataset.itemId);
     if (!item) return;
     const cart = [...getState().cart];
-    const existing = cart.find((c) => c.itemId === item.id);
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      cart.push({ itemId: item.id, name: item.name, price: item.price, qty: 1 });
-    }
+    cart.push({ itemId: item.id, name: item.name, price: item.price, qty: 1 });
     update({ cart });
     showToast(`Added ${item.name} to cart`);
+  },
+  "menu-increment": (el) => {
+    const cart = [...getState().cart];
+    const entry = cart.find((c) => c.itemId === el.dataset.itemId);
+    if (entry) entry.qty += 1;
+    update({ cart });
+  },
+  "menu-decrement": (el) => {
+    let cart = [...getState().cart];
+    const entry = cart.find((c) => c.itemId === el.dataset.itemId);
+    if (!entry) return;
+    if (entry.qty <= 1) {
+      cart = cart.filter((c) => c.itemId !== el.dataset.itemId);
+    } else {
+      entry.qty -= 1;
+    }
+    update({ cart });
   },
 };
